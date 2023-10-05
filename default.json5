@@ -1,0 +1,25 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "",
+  "extends": [
+    "config:base",
+    "regexManagers:dockerfileVersions"
+  ],
+  "regexManagers": [
+    {
+      "fileMatch": [".*"],
+      "matchStrings": [
+        "renovate: datasource=(?<datasource>[a-z-]+?) depName=(?<depName>\\S+?)(?: (packageName)=(?<packageName>\\S+?))?(?: versioning=(?<versioning>\\S+?))?(?: registryUrl=(?<registryUrl>\\S+?))?\\n\\s*(?:\\S+?_)?(?:VERSION|version|TAG|tag)\\s*[?]?[=:]\\s*\"?(?<currentValue>\\S+?)\"?\\s"
+      ],
+      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
+    },
+    {
+      "fileMatch": [".*"],
+      "matchStrings": [
+        "# renovate-image:( versioning=(?<versioning>.*?))?\\n.*?(IMAGE|Image|image)\\s*[=:]\\s*\"?(?<depName>.+?):(?<currentValue>\\S+?)\"?(\\s|$)"
+      ],
+      "datasourceTemplate": "docker",
+      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}docker{{/if}}"
+    },
+  ],
+}
