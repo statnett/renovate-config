@@ -5,8 +5,9 @@
     "config:base",
     "regexManagers:dockerfileVersions"
   ],
-  "regexManagers": [
+  "customManagers": [
     {
+      "customType": "regex",
       "fileMatch": [".*"],
       "matchStrings": [
         "renovate: datasource=(?<datasource>[a-z-]+?) depName=(?<depName>\\S+?)(?: (packageName)=(?<packageName>\\S+?))?(?: versioning=(?<versioning>\\S+?))?(?: registryUrl=(?<registryUrl>\\S+?))?\\n\\s*(?:\\S+?_)?(?:VERSION|version|TAG|tag)\\s*[?]?[=:]\\s*\"?(?<currentValue>\\S+?)\"?\\s"
@@ -14,6 +15,7 @@
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
     },
     {
+      "customType": "regex",
       "fileMatch": [".*"],
       "matchStrings": [
         "# renovate-image:( versioning=(?<versioning>.*?))?\\n.*?(IMAGE|Image|image)\\s*[=:]\\s*\"?(?<depName>.+?):(?<currentValue>\\S+?)\"?(\\s|$)"
