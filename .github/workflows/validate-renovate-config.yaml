@@ -1,5 +1,8 @@
 ---
-on: [push]
+name: Validate renovate config
+
+on:
+  - push
 
 jobs:
   validate-renovate-config:
