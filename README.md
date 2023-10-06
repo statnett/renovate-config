@@ -1,4 +1,4 @@
-# renovate-presets
+# renovate-config
 
 Custom [Renovate presets](https://docs.renovatebot.com/config-presets/), add to your renovate config:
 
@@ -6,6 +6,6 @@ Custom [Renovate presets](https://docs.renovatebot.com/config-presets/), add to 
   {
     "$schema": "https://docs.renovatebot.com/renovate-schema.json",
 -   "extends": ["config:base"],
-+   "extends": ["github>statnett/renovate-presets"],
++   "extends": ["github>statnett/renovate-config"],
   }
 ```
