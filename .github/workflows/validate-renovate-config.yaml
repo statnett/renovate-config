@@ -15,4 +15,4 @@ jobs:
     steps:
       - uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4.1.0
       - run: renovate --version
-      - run: renovate-config-validator default.json5
+      - run: renovate-config-validator default.json
