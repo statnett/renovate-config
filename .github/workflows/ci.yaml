@@ -1,9 +1,12 @@
 ---
-name: Validate renovate config
+name: CI
 
 on:
   pull_request: {}
   push: {}
+
+permissions:
+  contents: read
 
 jobs:
   validate-renovate-config:
@@ -16,3 +19,9 @@ jobs:
       - uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4.1.0
       - run: renovate --version
       - run: renovate-config-validator default.json
+
+  statnett-ci:
+    uses: statnett/github-workflows/.github/workflows/ci.yaml@main
+    permissions:
+      pull-requests: write
+      statuses: write
