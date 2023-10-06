@@ -2,7 +2,8 @@
 name: Validate renovate config
 
 on:
-  - push
+  pull_request: {}
+  push: {}
 
 jobs:
   validate-renovate-config:
