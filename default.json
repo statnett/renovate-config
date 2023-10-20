@@ -20,5 +20,10 @@
       "datasourceTemplate": "docker",
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}docker{{/if}}"
     }
+  ],
+  "postUpdateOptions": [
+    "gomodMassage",
+    "gomodTidy",
+    "gomodUpdateImportPaths"
   ]
 }
