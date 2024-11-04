@@ -1,7 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "description": "",
-  "extends": ["config:base", "regexManagers:dockerfileVersions"],
+  "extends": ["config:recommended", "customManagers:dockerfileVersions"],
   "ignorePaths": ["**/node_modules/**", "**/bower_components/**"],
   "customManagers": [
     {
