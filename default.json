@@ -1,12 +1,20 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "description": "",
-  "extends": ["config:recommended", "customManagers:dockerfileVersions"],
-  "ignorePaths": ["**/node_modules/**", "**/bower_components/**"],
+  "extends": [
+    "config:recommended",
+    "customManagers:dockerfileVersions"
+  ],
+  "ignorePaths": [
+    "**/node_modules/**",
+    "**/bower_components/**"
+  ],
   "customManagers": [
     {
       "customType": "regex",
-      "fileMatch": [".*"],
+      "fileMatch": [
+        ".*"
+      ],
       "matchStrings": [
         "renovate: datasource=(?<datasource>[a-z-]+?) depName=(?<depName>\\S+?)(?: packageName=(?<packageName>\\S+?))?(?: versioning=(?<versioning>\\S+?))?(?: registryUrl=(?<registryUrl>\\S+?))?\\n.*(?:VERSION|version|TAG|tag)\\s*[?]?[=:]\\s*\"?(?<currentValue>[^\"\\s]+)\"?"
       ],
@@ -14,12 +22,26 @@
     },
     {
       "customType": "regex",
-      "fileMatch": [".*"],
+      "fileMatch": [
+        ".*"
+      ],
       "matchStrings": [
         "# renovate-image:( versioning=(?<versioning>.*?))?\\n.*?(IMAGE|Image|image)\\s*[=:]\\s*\"?(?<depName>.+?):(?<currentValue>\\S+?)\"?(\\s|$)"
       ],
       "datasourceTemplate": "docker",
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}docker{{/if}}"
+    }
+  ],
+  "packageRules": [
+    {
+      "groupName": "Kubernetes",
+      "matchManagers": [
+        "gomod"
+      ],
+      "matchPackageNames": [
+        "k8s.io/**",
+        "sigs.k8s.io/**"
+      ]
     }
   ],
   "postUpdateOptions": [
