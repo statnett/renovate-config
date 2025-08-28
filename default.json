@@ -34,9 +34,9 @@
   ],
   "packageRules": [
     {
-      "groupName": "Kubernetes",
-      "matchManagers": [
-        "gomod"
+      "groupName": "Kubernetes Go packages",
+      "matchDatasources": [
+        "go"
       ],
       "matchPackageNames": [
         "k8s.io/**",
