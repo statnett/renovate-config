@@ -2,5 +2,14 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:best-practices"
+  ],
+  "packageRules": [
+    {
+      "matchDatasources": ["docker"],
+      "matchPackageNames": ["renovate/renovate"],
+      "schedule": [
+        "after 00:00 and before 07:00 on Monday"
+      ]
+    }
   ]
 }
