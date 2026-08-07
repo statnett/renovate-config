@@ -3,13 +3,15 @@
   "description": "",
   "extends": [
     "config:best-practices",
-    "customManagers:dockerfileVersions"
+    "customManagers:dockerfileVersions",
+    "security:gomodIndirectSecurityUpdates"
   ],
   "ignorePaths": [
     "**/node_modules/**",
     "**/bower_components/**"
   ],
   "labels": ["dependencies"],
+  "osvVulnerabilityAlerts": true,
   "customManagers": [
     {
       "customType": "regex",
