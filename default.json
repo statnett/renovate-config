@@ -45,6 +45,15 @@
         "k8s.io/**",
         "sigs.k8s.io/**"
       ]
+    },
+    {
+      "groupName": "Docker github actions",
+      "matchDatasources": [
+        "github-actions"
+      ],
+      "matchPackageNames": [
+        "docker/*"
+      ]
     }
   ],
   "postUpdateOptions": [
