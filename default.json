@@ -37,6 +37,10 @@
   ],
   "packageRules": [
     {
+      "matchJsonata": ["$exists(vulnerabilityFixVersion)"],
+      "semanticCommitType": "fix"
+    },
+    {
       "groupName": "Kubernetes Go packages",
       "matchDatasources": [
         "go"
